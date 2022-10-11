@@ -8,6 +8,7 @@ using sariyerpedo.BUSSINES.Extensions;
 using sariyerpedo.BUSSINES.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -93,6 +94,8 @@ namespace sariyerpedo.Areas.admin.Controllers
         }
 
         [HttpGet]
+        [Authorize]
+
         public IActionResult tedaviekle()
         {
             var langList = _langCountryService.GetAll();
@@ -102,7 +105,7 @@ namespace sariyerpedo.Areas.admin.Controllers
 
         [HttpPost]
         [RequestSizeLimit(100 * 1024 * 1024)]
-        public async Task<IActionResult> tedaviekle(TreatmentDto model, IFormFile image)
+        public async Task<IActionResult> tedaviolustur(TreatmentDto model, IFormFile image)
         {
             if(image != null)
             {
@@ -127,6 +130,121 @@ namespace sariyerpedo.Areas.admin.Controllers
             }
 
             return View();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult tedaviduzenle(int Id, string durum = "")
+        {
+            var treatment = _treatmentService.Get(Id);
+
+            var langList = _langCountryService.GetAll();
+            ViewBag.Langs = new SelectList(langList, "Id", "langTitle");
+
+            var newList = _treatmentService.GetAll();
+            ViewBag.News = newList;
+
+            if (durum == "")
+            {
+                TempData["durum"] = null;
+            }
+            else
+            {
+                TempData["durum"] = durum;
+            }
+
+            return View(treatment);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> tedaviguncelle(TreatmentDto model, IFormFile image)
+        {
+            try
+            {
+                if (image != null)
+                {
+
+                    var slider = _treatmentService.Get(model.Id);
+                    var imageSlider = _imageService.GetImage(slider.Id);
+
+                    if (imageSlider != null)
+                    {
+                        var originPath = imageSlider.folder + "Original_" + imageSlider.ImageNo + ".jpg";
+                        var thumbnailPath = imageSlider.folder + "Thumbnail_" + imageSlider.ImageNo + ".jpg";
+                        var fullscrenPath = imageSlider.folder + "Fullscreen_" + imageSlider.ImageNo + ".jpg";
+
+                        var storageOrigin = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{originPath}".Replace("/", "\\"));
+                        var storageThumbnail = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{thumbnailPath}".Replace("/", "\\"));
+                        var storageFullscreen = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{fullscrenPath}".Replace("/", "\\"));
+
+                        List<string> storageList = new List<string>
+                    {
+                        storageOrigin,
+                        storageThumbnail,
+                        storageFullscreen
+                    };
+
+                        foreach (var item in storageList)
+                        {
+                            FileInfo file = new FileInfo(item);
+                            if (file.Exists)
+                                file.Delete();
+                        }
+
+                        _imageService.Delete(imageSlider.Id);
+                    }
+
+                    _treatmentService.Update(model);
+
+                    await _imageService.Process(new ImageInputModel
+                    {
+                        Name = image.FileName,
+                        Type = image.ContentType,
+                        Content = image.OpenReadStream(),
+                        SliderId = slider.Id,
+                    });
+
+                    return Redirect("tedaviler");
+                }
+                else
+                {
+                    return Redirect("tedaviler");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult tedavidurumduzenle(int Id)
+        {
+            var slider = _treatmentService.Get(Id);
+
+            if (slider.IsActive == true)
+            {
+                slider.IsActive = false;
+            }
+            else
+            {
+                slider.IsActive = true;
+            }
+
+            _treatmentService.Update(slider);
+
+            return Redirect("tedaviler");
+        }
+
+        [HttpGet]
+        public IActionResult slidersil(int Id)
+        {
+            var slider = _treatmentService.Get(Id);
+            _treatmentService.Delete(slider.Id);
+
+            return Redirect("tedaviler");
+
         }
 
         #endregion

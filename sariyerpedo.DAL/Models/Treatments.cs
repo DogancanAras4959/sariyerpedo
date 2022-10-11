@@ -38,10 +38,6 @@ namespace sariyerpedo.DAL.Models
 
         [Required]
         [MaxLength(75)]
-        public string Image { get; set; }
-
-        [Required]
-        [MaxLength(75)]
         public string Video { get; set; }
 
         public int TreatmentId { get; set; }

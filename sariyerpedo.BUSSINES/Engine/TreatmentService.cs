@@ -38,7 +38,7 @@ namespace sariyerpedo.BUSSINES.Engine
 
         public List<TreatmentDto> listTakeTreatment(int max)
         {
-            var entity = _repository.Where(x => x.IsActive == true).OrderByDescending(x => x.CreatedTime).Include("category").Take(max).ToList();
+            var entity = _repository.Where(x => x.IsActive == true).OrderByDescending(x => x.CreatedTime).Take(max).ToList();
             var entityDto = _mapper.Map<List<Treatments>, List<TreatmentDto>>(entity);
             return entityDto;
         }
@@ -52,21 +52,21 @@ namespace sariyerpedo.BUSSINES.Engine
 
         public List<TreatmentDto> listToEngTreatment()
         {
-            var entity = _repository.Where(x => x.LangId == 1).Include("category").ToList();
+            var entity = _repository.Where(x => x.LangId == 1).ToList();
             var entityDto = _mapper.Map<List<Treatments>, List<TreatmentDto>>(entity);
             return entityDto;
         }
 
         public List<TreatmentDto> listToKeyword(string keyword)
         {
-            var entity = _repository.Where(x => x.title!.Contains(keyword) && x.IsActive == true).OrderByDescending(x => x.CreatedTime).Include("category").ToList();
+            var entity = _repository.Where(x => x.title!.Contains(keyword) && x.IsActive == true).OrderByDescending(x => x.CreatedTime).ToList();
             var entityDto = _mapper.Map<List<Treatments>, List<TreatmentDto>>(entity);
             return entityDto;
         }
 
         public List<TreatmentDto> listToTrTreatment()
         {
-            var entity = _repository.Where(x => x.LangId == 2).Include("category").ToList();
+            var entity = _repository.Where(x => x.LangId == 2).ToList();
             var entityDto = _mapper.Map<List<Treatments>, List<TreatmentDto>>(entity);
             return entityDto;
         }
