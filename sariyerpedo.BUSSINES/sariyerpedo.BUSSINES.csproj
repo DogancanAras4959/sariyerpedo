@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\sariyerpedo.CORE\sariyerpedo.CORE.csproj" />
+    <ProjectReference Include="..\sariyerpedo.DAL\sariyerpedo.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

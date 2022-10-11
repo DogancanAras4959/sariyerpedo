@@ -1,0 +1,140 @@
+﻿@inject LocalizationService localizationService
+@using sariyerpedo.Resource
+
+@{
+    ViewData["Title"] = "doktorumuz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="tf-page-title">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title inner">
+                    <h1 class="title">@localizationService.GetLocalizedHtmlString("doktorumuz")</h1>
+                    <div class="breadcrumbs">
+                        <ul class="jus-ct">
+                            <li><a href="@Url.Action("sayfa","anasayfa")" class="f-rubik">@localizationService.GetLocalizedHtmlString("anasayfa")</a></li>
+                            <li><p class="breadcrumbs-inner f-rubik">@localizationService.GetLocalizedHtmlString("doktorumuz")</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tf-section tf-teacher-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="fx teacher-details">
+                    <div class="teacher-infor">
+                        <div class="content">
+                            <h3 class="name">Frank T. Norman</h3>
+                            <p class="job">English Teacher</p>
+                            <p class="sub f-mulish">
+                                Quis autem vel eum iure reprehenderit quiin ea voluptate velit esse quam nihile molestiae consequatur velillum
+                            </p>
+                        </div>
+                        <div class="teacher-social">
+                            <h4>Follow Me</h4>
+                            <div class="social">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="teacher-image wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
+                        <img src="assets/images/common/sc-service-10.jpg" alt="Image">
+                    </div>
+                    <div class="teacher-desc">
+                        <ul class="fx m-b17">
+                            <li class="style"><span>M</span></li>
+                            <li><span class="f-mulish">Sedut perspiciatis unde omnis iste natus error sit volupta accusantium doloremque laudantium totam</span></li>
+                        </ul>
+                        <p class="f-mulish">
+                            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system,
+                            and expound the actual
+                        </p>
+                        <ul class="box">
+                            <li class="list fx">
+                                <span><i class="far fa-envelope-open"></i></span>
+                                <span>Email Address</span>
+                            </li>
+                            <li>support@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="infor-teacher-detail">
+                    <div class="experience m-b38">
+                        <h3>Personal Experience</h3>
+                        <p>
+                            Waste ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed sagittis nisl. In vitae orci ante. Phasellus id libero mi.
+                            Praesent ipsum velit, aliquam et sodales eget, tincidunt lobortis massa. Duis luctus dapibus sem, nec scelerisque ante tempus lacinia.
+                            Suspendisse malesuada non nibh ac finibus. Vivamus sem tortor, molestie sit amet nibh eget, commodo mattis arcu.
+                        </p>
+                        <p>
+                            Integer dignissim dolor quis lorem semper, sit amet convallis ipsum dignissim. Sed diam quam, aliquam a fringilla at, lobortis sed velit.
+                            Cum natoque penatibus et magnis dis parturient montes nascetur ridiculus mus.
+                            Nulla iaculis enim id mauris pharetra laoreet.
+                        </p>
+                    </div>
+                    <div class="professional">
+                        <h3>Professional Skills</h3>
+                        <p>
+                            Consectetur adipiscing elit. Morbi sed sagittis nisl. In vitae orci ante. Phasellus id libero mi.
+                            Praesent ipsum velit, aliquam et sodales eget, tincidunt lobortis massa.
+                            Duis luctus dapibus sem, nec scelerisque ante tempus lacinia.
+                            Suspendisse malesuada non nibh ac finibus. Vivamus sem tortor, molestie sit amet nibh eget, commodo mattis arcu.
+                        </p>
+                    </div>
+                    <div class="wrap-couter fx">
+                        <div class="progress-couter firt wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
+                            <div class="couter">
+                                <div class="chart" data-percent="79" data-color="#FC477E">
+                                    <span class="percent" style="width: 120px; height: 120px; line-height: 120px;">79</span>
+                                    <canvas height="120" width="120"></canvas>
+                                </div>
+                                <h4 class="heading-progress">Service Orientation</h4>
+                            </div>
+                        </div>
+                        <div class="progress-couter two wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
+                            <div class="couter">
+                                <div class="chart" data-percent="83" data-color="#FAB319" data-trackcolor="#fef7e8">
+                                    <span class="percent" style="width: 120px; height: 120px; line-height: 120px;">83</span>
+                                    <canvas height="120" width="120"></canvas>
+                                </div>
+                                <h4 class="heading-progress">Time Management</h4>
+                            </div>
+                        </div>
+                        <div class="progress-couter three wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
+                            <div class="couter">
+                                <div class="chart" data-percent="68" data-color="#B250FE" data-trackcolor="#f7edff">
+                                    <span class="percent" style="width: 120px; height: 120px; line-height: 120px;">68</span>
+                                    <canvas height="120" width="120"></canvas>
+                                </div>
+                                <h4 class="heading-progress">Critical Thinking</h4>
+                            </div>
+                        </div>
+                        <div class="progress-couter three wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
+                            <div class="couter">
+                                <div class="chart" data-percent="94" data-color="#B250FE" data-trackcolor="#f7edff">
+                                    <span class="percent" style="width: 120px; height: 120px; line-height: 120px;">94</span>
+                                    <canvas height="120" width="120"></canvas>
+                                </div>
+                                <h4 class="heading-progress">Critical Thinking</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

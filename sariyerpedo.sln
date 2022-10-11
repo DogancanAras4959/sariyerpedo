@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sariyerpedo", "sariyerpedo\sariyerpedo.csproj", "{85911B61-8CD2-4511-A782-009E4CDE5CF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CORE", "CORE", "{F51F2AE6-1ED6-4431-8A6F-CBAA93BAB332}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOMAIN", "DOMAIN", "{697A3C2C-EC28-484D-B022-185443186FFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SERVICES", "SERVICES", "{DF12946D-F56C-4824-A42F-620614DDBA1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sariyerpedo.COMMON", "sariyerpedo.COMMON\sariyerpedo.COMMON.csproj", "{54E1E2A0-52AD-4ABB-A188-3511427022EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sariyerpedo.CORE", "sariyerpedo.CORE\sariyerpedo.CORE.csproj", "{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sariyerpedo.DAL", "sariyerpedo.DAL\sariyerpedo.DAL.csproj", "{2317DE32-E4D3-48B3-B70E-2198F619810C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sariyerpedo.BUSSINES", "sariyerpedo.BUSSINES\sariyerpedo.BUSSINES.csproj", "{4D4BCB3C-0795-4444-B852-577EB5E89800}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85911B61-8CD2-4511-A782-009E4CDE5CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85911B61-8CD2-4511-A782-009E4CDE5CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85911B61-8CD2-4511-A782-009E4CDE5CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85911B61-8CD2-4511-A782-009E4CDE5CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E1E2A0-52AD-4ABB-A188-3511427022EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E1E2A0-52AD-4ABB-A188-3511427022EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E1E2A0-52AD-4ABB-A188-3511427022EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E1E2A0-52AD-4ABB-A188-3511427022EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2317DE32-E4D3-48B3-B70E-2198F619810C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2317DE32-E4D3-48B3-B70E-2198F619810C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2317DE32-E4D3-48B3-B70E-2198F619810C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2317DE32-E4D3-48B3-B70E-2198F619810C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4BCB3C-0795-4444-B852-577EB5E89800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4BCB3C-0795-4444-B852-577EB5E89800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4BCB3C-0795-4444-B852-577EB5E89800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4BCB3C-0795-4444-B852-577EB5E89800}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54E1E2A0-52AD-4ABB-A188-3511427022EB} = {F51F2AE6-1ED6-4431-8A6F-CBAA93BAB332}
+		{CD4C28DA-2AA9-482B-9AB3-F234E49EEFEE} = {F51F2AE6-1ED6-4431-8A6F-CBAA93BAB332}
+		{2317DE32-E4D3-48B3-B70E-2198F619810C} = {697A3C2C-EC28-484D-B022-185443186FFC}
+		{4D4BCB3C-0795-4444-B852-577EB5E89800} = {DF12946D-F56C-4824-A42F-620614DDBA1B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0220378E-2ADF-4175-B20A-ADCB76C26BE5}
+	EndGlobalSection
+EndGlobal

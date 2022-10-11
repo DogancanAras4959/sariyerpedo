@@ -1,0 +1,107 @@
+﻿@model sariyerpedo.BUSSINES.DTOS.SliderData.SliderDto
+@using sariyerpedo.BUSSINES.DTOS.ImageFileData
+
+@{
+    ViewData["Title"] = "sliderduzenle";
+    Layout = "~/Areas/admin/Views/_Shared/_Layout.cshtml";
+
+    ImageFileDto image = ViewBag.Image as ImageFileDto;
+    string path = image.folder + "/Thumbnail_" + image.ImageNo + ".jpg"; 
+}
+
+<style>
+    .form-check {
+        position: relative;
+        text-align: left;
+    }
+
+        .form-check .form-check-input {
+            float: left;
+            margin-right: 0.5rem;
+        }
+</style>
+
+<div class="col-xl-8">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="/admin/slider/sliderguncelle" enctype="multipart/form-data" novalidate="" class="needs-validation">
+                @Html.HiddenFor(x=> x.Id)
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <a href="@path.Replace("Thumbnail","Fullscreen")">
+                                <img loading="lazy" src="@path" title="@image.OriginalFileName" alt="@image.OriginalFileName" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <h4 class="card-title">Dosya Gezgini</h4>
+                            <p class="card-title-desc">Slider için bir fotoğrafı <em>Seçin…</em> ve diğer form bilgilerini doldurup formu gönderin.</p>
+                            <div class="input-group">
+                                <input type="file" name="image" class="form-control" id="customFile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom01" class="form-label">Başlık</label>
+                            @Html.TextBoxFor(x => x.title, new { @class = "form-control", id = "validationCustom01", placeholder = "Slider başlık giriniz", @required = "" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">Alt Başlık</label>
+                            @Html.TextBoxFor(x => x.subTitle, new { @class = "form-control", id = "validationCustom02", placeholder = "Alt başlık giriniz", @required = "" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom04" class="form-label">Url</label>
+                            @Html.TextBoxFor(x => x.url, new { @class = "form-control", id = "validationCustom04", type = "text", placeholder = "Url giriniz", @required = "" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom04" class="form-label">Url Başlık</label>
+                            @Html.TextBoxFor(x => x.UrlTitle, new { @class = "form-control", id = "validationCustom04", type = "text", placeholder = "Url Başlık giriniz", @required = "" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label for="validationCustom04" class="form-label">İçerik</label>
+                            @Html.TextBoxFor(x => x.slogan, new { @class = "form-control", id = "validationCustom04", type = "text", placeholder = "İçerik giriniz", @required = "" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="validationCustom04" class="form-label">Sıra</label>
+                            @Html.TextBoxFor(x => x.sorted, new { @class = "form-control", id = "validationCustom04", type = "text", placeholder = "Sıra giriniz", @required = "" })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check form-switch mb-3" dir="ltr">
+                    @Html.CheckBoxFor(x => x.IsActive, new { @class = "form-check-input", id = "customSwitch1" })
+                    <label class="form-check-label" for="customSwitch1">Aktif mi?</label>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Slider Oluştur</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end card -->
+</div>
+
+
+
+

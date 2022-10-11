@@ -1,0 +1,39 @@
+﻿@model sariyerpedo.BUSSINES.DTOS.SiteSettingData.SiteSettingDto
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    @await Component.InvokeAsync("Header")
+
+</head>
+<body class="counter-scroll header-fixed home2">
+
+    <div id="wrapper">
+        <div id="page" class="clearfix">
+
+            @await Component.InvokeAsync("SubHeader")
+
+            @RenderBody()
+
+            <footer id="footer">
+                @await Component.InvokeAsync("Footer")
+            </footer>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <a id="scroll-top"></a>
+
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/plugin.js"></script>
+    <script src="~/assets/js/countto.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/owl.carousel2.thumbs.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/shortcodes.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+</body>
+</html>
