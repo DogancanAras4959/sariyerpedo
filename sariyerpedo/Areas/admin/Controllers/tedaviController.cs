@@ -16,6 +16,9 @@ namespace sariyerpedo.Areas.admin.Controllers
     [Area("admin")]
     public class tedaviController : Controller
     {
+
+        #region Fields
+
         private readonly ITreatmentService _treatmentService;
         private readonly ILanguageService _languageService;
         private readonly ILangCountryService _langCountryService;
@@ -27,6 +30,10 @@ namespace sariyerpedo.Areas.admin.Controllers
             _languageService = languageService;
             _langCountryService = langCountryService;
         }
+
+        #endregion
+
+        #region Tedavi  
 
         [HttpGet]
         [Authorize]
@@ -121,6 +128,9 @@ namespace sariyerpedo.Areas.admin.Controllers
 
             return View();
         }
+
+        #endregion
+
 
     }
 }
