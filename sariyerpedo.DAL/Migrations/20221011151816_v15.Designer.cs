@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sariyerpedo.DAL;
 
 namespace sariyerpedo.DAL.Migrations
 {
     [DbContext(typeof(sariyerpedodbcontext))]
-    partial class sariyerpedodbcontextModelSnapshot : ModelSnapshot
+    [Migration("20221011151816_v15")]
+    partial class v15
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

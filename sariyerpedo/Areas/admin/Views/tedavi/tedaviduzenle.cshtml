@@ -1,8 +1,131 @@
-﻿
+﻿@model sariyerpedo.BUSSINES.DTOS.TreatmentData.TreatmentDto
+@using sariyerpedo.BUSSINES.DTOS.ImageFileTreatmentData
+
 @{
-    ViewData["Title"] = "tedaviduzenle";
+    ViewData["Title"] = "Tedavi Düzenle";
     Layout = "~/Areas/admin/Views/_Shared/_Layout.cshtml";
+
+    ImageFileTreatmentDto image = ViewBag.Image as ImageFileTreatmentDto;
+    string path = image.folder + "/Fullscreen_" + image.ImageNo + ".jpg";
+
 }
 
-<h1>tedaviduzenle</h1>
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    }
+}
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<link href="~/ckeditor/contents.css" rel="stylesheet" />
+
+<style>
+    .form-check {
+        position: relative;
+        text-align: left;
+    }
+
+        .form-check .form-check-input {
+            float: left;
+            margin-right: 0.5rem;
+        }
+
+    body {
+        margin: 0;
+        background-color: #f1f5f7;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+</style>
+
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="/admin/tedavi/tedaviguncelle" enctype="multipart/form-data" novalidate="" class="needs-validation">
+                @Html.HiddenFor(x => x.Id)
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="mb-3">
+                            <a href="@path.Replace("Thumbnail","Fullscreen")">
+                                <img loading="lazy" src="@path" title="@image.OriginalFileName" alt="@image.OriginalFileName" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <h4 class="card-title">Dosya Gezgini</h4>
+                            <p class="card-title-desc">Tedavi için bir fotoğrafı <em>Seçin…</em> ve diğer form bilgilerini doldurup formu gönderin.</p>
+                            <div class="input-group">
+                                <input type="file" name="image" class="form-control" id="customFile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom01" class="form-label">Başlık</label>
+                            @Html.TextBoxFor(x => x.title, new { @class = "form-control", id = "validationCustom01", placeholder = "Başlık giriniz", @required = "" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">Spot</label>
+                            @Html.TextBoxFor(x => x.spot, new { @class = "form-control", id = "validationCustom02", placeholder = "Spot giriniz", @required = "" })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom01" class="form-label">Meta Başlık</label>
+                            @Html.TextBoxFor(x => x.metaTitle, new { @class = "form-control", id = "validationCustom01", placeholder = "Meta Başlık giriniz", @required = "" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">Meta Açıklama</label>
+                            @Html.TextBoxFor(x => x.metaDescription, new { @class = "form-control", id = "validationCustom02", placeholder = "Meta Açıklama giriniz", @required = "" })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">İçerik</label>
+                            <textarea asp-for="content" class="ckeditor"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="validationCustom02" class="form-label">İçerik Dili</label>
+                            <select asp-for="LangId" asp-items="@ViewBag.Langs" class="form-control mb15">
+                                <option selected="selected" value="999">Dil seçiniz (Zorunlu)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check form-switch mb-3" dir="ltr">
+                    @Html.CheckBoxFor(x => x.IsActive, new { @class = "form-check-input", id = "customSwitch1" })
+                    <label class="form-check-label" for="customSwitch1">Aktif mi?</label>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Tedavi Oluştur</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end card -->
+</div>
+
 

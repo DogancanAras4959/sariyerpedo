@@ -3,9 +3,18 @@
 
 @inject LocalizationService localizationService
 
+<style>
+    #mainnav .menu {
+        padding-left: 30px;
+    }
+    .header2 #mainnav .menu > li {
+        margin-right: 30px;
+    }
+</style>
+
 <div class="top-bar">
     <div class="inner jus-ct">
-        <p class="clr-pri-1">Working Jours : Sun - Friday, 08:00 am - 05:00 pm</p>
+        <p class="clr-pri-1">@localizationService.GetLocalizedHtmlString("Working Hours") 08:00 am - 05:00 pm</p>
     </div>
 </div>
 <header id="site-header" class="header_main header2">
@@ -26,20 +35,20 @@
                                     <a href="@Url.Action("sayfa","anasayfa")">@localizationService.GetLocalizedHtmlString("anasayfa")</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/klinigimiz">@localizationService.GetLocalizedHtmlString("kliniğimiz")</a>
+                                    <a href="/tedaviler">@localizationService.GetLocalizedHtmlString("tedaviler")</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/doktorumuz">@localizationService.GetLocalizedHtmlString("doktorumuz")</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="/tedaviler">@localizationService.GetLocalizedHtmlString("tedaviler")</a>
+                                    <a href="/klinigimiz">@localizationService.GetLocalizedHtmlString("kliniğimiz")</a>
                                 </li>
                                 <li class="menu-item">
                                     <a href="/iletisim">@localizationService.GetLocalizedHtmlString("iletişim")</a>
                                 </li>
-                                <li class="menu-item">
+                                @*<li class="menu-item">
                                     <a href="/randevual">@localizationService.GetLocalizedHtmlString("randevual")</a>
-                                </li>
+                                </li>*@
                                 <li class="menu-item">
                                     @await Html.PartialAsync("_setLanguagePartial")
                                 </li>
@@ -58,7 +67,7 @@
                                     </g>
                                 </svg>
                                 <ul>
-                                    <li class="clr-pri-2">Bize Ulaşın</li>
+                                    <li class="clr-pri-2">@localizationService.GetLocalizedHtmlString("ContactUs")</li>
                                     <li class="clr-pri-2">+012 (345) 678</li>
                                 </ul>
                             </div>
@@ -68,135 +77,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="sidebar2" class="side-menu__block">
-        <div class="side-menu__block-overlay custom-cursor__overlay"></div>
-
-        <div class="inner-sidebar side-menu__block-inner fl-st-1">
-            <div class="side-menu__top justify-content-end">
-                <a href="#" class="side-menu__toggler side-menu__close-btn"><img src="~/assets/images/common/close.png" alt="images"></a>
-            </div>
-            <div class="wrap">
-                <div class="widget widget-quote">
-                    <div class="box-feature">
-                        <div class="inner">
-                            <img src="~/assets/images/post/post-quotes2.jpg" alt="Image">
-                            <div class="box-icon jus-ali-ct">
-                                <i class="far fa-quote-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-content">
-                        <h5 class="author clr-pri-2">Patrick D. Smith</h5>
-                        <p class="wrap f-rubik">
-                            Sit amet consectetur adipiscing elit sed do eiusmod tempor didunt ut labore et dolore magna
-                        </p>
-                    </div>
-                </div>
-
-                <div class="widget widget-search st-2">
-                    <h4 class="title-widget fl-ctm-1">Arama Yap<span class="ctm-inner"></span></h4>
-                    <div class="form-search-widget">
-                        <form action="#">
-                            <input type="text" placeholder="Search Here">
-                            <button><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="widget widget-category st-2">
-                    <h4 class="title-widget fl-ctm-1">category<span class="ctm-inner"></span></h4>
-                    <div class="list-category">
-                        <ul>
-                            <li class="fx"><span class="st wd-ctm">Arts &amp; Drawing</span><span class="st">05</span></li>
-                            <li class="fx"><span class="st wd-ctm">Basic Language</span><span class="st">02</span></li>
-                            <li class="fx"><span class="st wd-ctm">Graphics Design</span><span class="st">07</span></li>
-                            <li class="fx"><span class="st wd-ctm">Web Development</span><span class="st">04</span></li>
-                            <li class="fx"><span class="st wd-ctm">Lifestyle</span><span class="st">06</span></li>
-                            <li class="fx"><span class="st wd-ctm">GYM &amp; Gaming</span><span class="st">05</span></li>
-                            <li class="fx"><span class="st wd-ctm">Events &amp; Party</span><span class="st">05</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="widget widget-news st-2">
-                    <h4 class="title-widget fl-ctm-1">recent news<span class="ctm-inner"></span></h4>
-                    <ul class="list-news">
-                        <li class="fx">
-                            <img src="~/assets/images/thumbnails/widget1.jpg" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li><h6 class="title"><a href="blog-single.html">Bake Layers Accesilit Testing Supporte</a></h6></li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i class="far fa-calendar-alt"></i><span class="f-rubik">25 nov 2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="~/assets/images/thumbnails/widget2.jpg" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li><h6 class="title"><a href="blog-single.html">Bake Layers Accesilit Testin Supporte</a></h6></li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i class="far fa-calendar-alt"></i><span class="f-rubik">25 nov 2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="~/assets/images/thumbnails/widget3.jpg" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li><h6 class="title"><a href="blog-single.html">Bake Layers Accesilit Testin Supporte</a></h6></li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i class="far fa-calendar-alt"></i><span class="f-rubik">25 nov 2021</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="fx">
-                            <img src="~/assets/images/thumbnails/widget4.jpg" alt="Image" class="feature">
-                            <ul class="box-content">
-                                <li><h6 class="title"><a href="blog-single.html">Bake Layers Accesilit Testin Supporte</a></h6></li>
-                                <li><a href="blog-single.html" class="fx meta-news clr-pri-4"><i class="far fa-calendar-alt"></i><span class="f-rubik">25 nov 2021</span></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="widget widget-tag st-2">
-                    <h4 class="title-widget fl-ctm-1">best tags<span class="ctm-inner"></span></h4>
-                    <ul class="list-tag">
-                        <li><a href="shop-details.html" class="f-rubik active">Technology</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">service</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">team</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">solutions</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">consultancy</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">It Company</a></li>
-                        <li><a href="shop-details.html" class="f-rubik">agency</a></li>
-                    </ul>
-                </div>
-
-                <div class="widget widget-gallery st-2">
-                    <h4 class="title-widget fl-ctm-1">photo gallery<span class="ctm-inner"></span></h4>
-                    <div class="list-gallery fx">
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget5.jpg" alt="Image">
-                        </div>
-                        <div class="box-photo active">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget1.jpg" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget6.jpg" alt="Image">
-                        </div>
-
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget7.jpg" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget3.jpg" alt="Image">
-                        </div>
-                        <div class="box-photo">
-                            <div class="overlay fx"><i class="fal fa-plus"></i></div>
-                            <img src="~/assets/images/thumbnails/widget8.jpg" alt="Image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/inner-sidebar-->
     </div>
 </header>

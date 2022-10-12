@@ -36,17 +36,9 @@ namespace sariyerpedo.DAL.Models
         [MaxLength(200)]
         public string metaDescription { get; set; }
 
-        [Required]
-        [MaxLength(75)]
-        public string Video { get; set; }
-
-        public int TreatmentId { get; set; }
-
-
         [ForeignKey("lang")]
         public int LangId { get; set; }
         public LangCountry lang { get; set; }
-
 
         public ICollection<ImageFileTreatment> imageFileForTreatmentList { get; set; }
 

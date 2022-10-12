@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sariyerpedo.DAL.Models
 {
-    [Table("iamgeFileTreatment")]
+    [Table("imageFileTreatment")]
     public class ImageFileTreatment : BaseEntity
     {
         public ImageFileTreatment()

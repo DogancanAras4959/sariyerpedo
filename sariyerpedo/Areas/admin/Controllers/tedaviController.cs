@@ -25,11 +25,13 @@ namespace sariyerpedo.Areas.admin.Controllers
         private readonly ILangCountryService _langCountryService;
         private readonly IImageTreatmentService _imageService;
 
-        public tedaviController(ITreatmentService treatmentService, ILangCountryService langCountryService, ILanguageService languageService)
+        public tedaviController(ITreatmentService treatmentService, ILangCountryService langCountryService, ILanguageService languageService, IImageTreatmentService imageService)
         {
             _treatmentService = treatmentService;
             _languageService = languageService;
             _langCountryService = langCountryService;
+            _imageService = imageService;
+
         }
 
         #endregion
@@ -43,10 +45,11 @@ namespace sariyerpedo.Areas.admin.Controllers
             var treatmentListLanguageTR = _treatmentService.listToTrTreatment();
             var treatmentListLanguageENG = _treatmentService.listToEngTreatment();
 
-            ViewBag.SelectLanguageTR = treatmentListLanguageTR;
-            ViewBag.SelectLanguageENG = treatmentListLanguageENG;
+            ViewBag.SelectLanguageTR = new SelectList(treatmentListLanguageTR,"Id","title");
+            ViewBag.SelectLanguageENG = new SelectList(treatmentListLanguageENG, "Id", "title");
 
-            return View(_treatmentService.GetAll());
+            List<TreatmentDto> treatmentList = _treatmentService.GetAll();
+            return View(treatmentList.ToList());
         }
 
         [HttpPost]
@@ -58,12 +61,12 @@ namespace sariyerpedo.Areas.admin.Controllers
 
             if(getLangaugeSyncTreatment != null)
             {
-                if(treatment.languageId == 1)
+                if(treatment.LangId == 1)
                 {
                     getLangaugeSyncTreatment.langTitleTr = selectedTreatment.title;
                     _languageService.Update(getLangaugeSyncTreatment);
                 }
-                else if(treatment.languageId == 2)
+                else if(treatment.LangId == 2)
                 {
                     getLangaugeSyncTreatment.langTitleEng = selectedTreatment.title;
                     _languageService.Update(getLangaugeSyncTreatment);
@@ -76,12 +79,12 @@ namespace sariyerpedo.Areas.admin.Controllers
             {
                 LanguageDto model = new LanguageDto();
 
-                if (treatment.languageId == 1)
+                if (treatment.LangId == 1)
                 {
                     model.langTitleTr = treatment.title;
                     model.langTitleEng = selectedTreatment.title;
                 }
-                else if(treatment.languageId == 2)
+                else if(treatment.LangId == 2)
                 {
                     model.langTitleEng = treatment.title;
                     model.langTitleTr = selectedTreatment.title;
@@ -118,7 +121,7 @@ namespace sariyerpedo.Areas.admin.Controllers
                         Name = image.FileName,
                         Type = image.ContentType,
                         Content = image.OpenReadStream(),
-                        SliderId = Id,
+                        TreatmentId = Id,
                     });
 
                     return Redirect("tedaviler");
@@ -143,6 +146,9 @@ namespace sariyerpedo.Areas.admin.Controllers
 
             var newList = _treatmentService.GetAll();
             ViewBag.News = newList;
+
+            var imageFile = _imageService.GetImage(treatment.Id);
+            ViewBag.Image = imageFile;
 
             if (durum == "")
             {
@@ -238,9 +244,39 @@ namespace sariyerpedo.Areas.admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult slidersil(int Id)
+        public IActionResult tedavisil(int Id)
         {
             var slider = _treatmentService.Get(Id);
+
+            var imageSlider = _imageService.GetImage(slider.Id);
+
+            if (imageSlider != null)
+            {
+                var originPath = imageSlider.folder + "Original_" + imageSlider.ImageNo + ".jpg";
+                var thumbnailPath = imageSlider.folder + "Thumbnail_" + imageSlider.ImageNo + ".jpg";
+                var fullscrenPath = imageSlider.folder + "Fullscreen_" + imageSlider.ImageNo + ".jpg";
+
+                var storageOrigin = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{originPath}".Replace("/", "\\"));
+                var storageThumbnail = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{thumbnailPath}".Replace("/", "\\"));
+                var storageFullscreen = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot{fullscrenPath}".Replace("/", "\\"));
+
+                List<string> storageList = new List<string>
+                    {
+                        storageOrigin,
+                        storageThumbnail,
+                        storageFullscreen
+                    };
+
+                foreach (var item in storageList)
+                {
+                    FileInfo file = new FileInfo(item);
+                    if (file.Exists)
+                        file.Delete();
+                }
+
+                _imageService.Delete(imageSlider.Id);
+            }
+
             _treatmentService.Delete(slider.Id);
 
             return Redirect("tedaviler");

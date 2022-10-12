@@ -42,6 +42,7 @@ namespace sariyerpedo.Helpers
             services.AddTransient<ISliderService, SliderService>();
             services.AddTransient<ILanguageService, LanguageService>();
             services.AddTransient<ILangCountryService, LangCountryService>();
+            services.AddTransient<IImageTreatmentService, ImageTreatmentService>();
         }
 
     }

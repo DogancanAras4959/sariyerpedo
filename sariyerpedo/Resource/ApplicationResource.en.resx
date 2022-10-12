@@ -117,11 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About2 Content" xml:space="preserve">
+    <value>Your child's health is in safe hands with our specialist in Pediatric Dentistry. Contact us to get information about your child's oral and dental treatment and to make an appointment.</value>
+  </data>
+  <data name="About2 Title" xml:space="preserve">
+    <value>Your Child's Oral and Dental Health is Under Our Protection</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
   <data name="anasayfa" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="blog" xml:space="preserve">
     <value>Blogs</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="Discover Sub Title" xml:space="preserve">
+    <value>Useful Information</value>
+  </data>
+  <data name="Discover Title" xml:space="preserve">
+    <value>Best For Your Kids</value>
+  </data>
+  <data name="Discover-1" xml:space="preserve">
+    <value>Making it a routine to brush your teeth every morning and evening</value>
+  </data>
+  <data name="Discover-2" xml:space="preserve">
+    <value>Set an example for your children brushing and flossing</value>
+  </data>
+  <data name="Discover-3" xml:space="preserve">
+    <value>Dont's neglect regular dental checkups</value>
+  </data>
+  <data name="Discover-4" xml:space="preserve">
+    <value>Avoid sugary drinks as much as possible</value>
   </data>
   <data name="doktorumuz" xml:space="preserve">
     <value>Our Doctor</value>
@@ -159,6 +189,9 @@
   <data name="Form Treatment" xml:space="preserve">
     <value>Choose Your Treatments</value>
   </data>
+  <data name="Galeri" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
   <data name="iletişim" xml:space="preserve">
     <value>Contact Us</value>
   </data>
@@ -195,8 +228,14 @@
   <data name="News Box Title" xml:space="preserve">
     <value>News and Updates</value>
   </data>
+  <data name="OurClinic" xml:space="preserve">
+    <value>Our Clinic</value>
+  </data>
   <data name="randevual" xml:space="preserve">
     <value>Book Now</value>
+  </data>
+  <data name="Read More" xml:space="preserve">
+    <value>Read More</value>
   </data>
   <data name="Supports Box Button" xml:space="preserve">
     <value>Contact Us</value>
@@ -212,5 +251,8 @@
   </data>
   <data name="We Are Ready" xml:space="preserve">
     <value>We Are Ready To Help You For Your’s Informations</value>
+  </data>
+  <data name="Working Hours" xml:space="preserve">
+    <value>Working Hours: Monday - Sunday,</value>
   </data>
 </root>

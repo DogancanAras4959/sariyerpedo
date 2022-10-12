@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About2 Content" xml:space="preserve">
+    <value>Çocuk Diş Hekimliği alanında uzman doktorumuz ile çocuğunuzun sağlığı emin ellerde. Çocuğunuzun ağız ve diş tedavisi hakkında bilgi almak ve randevu oluşturmak için bizimle iletişime geçin.</value>
+  </data>
+  <data name="About2 Title" xml:space="preserve">
+    <value>Çocuğunuzun Ağız ve Diş Sağlığı Bizim Güvencemizde</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>Hakkımızda</value>
+  </data>
   <data name="anasayfa" xml:space="preserve">
     <value>Ana Sayfa</value>
   </data>
@@ -125,6 +134,27 @@
   </data>
   <data name="BookNow Title" xml:space="preserve">
     <value>Randevu Al</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Bize Ulaşın</value>
+  </data>
+  <data name="Discover Sub Title" xml:space="preserve">
+    <value>Faydalı Bilgiler</value>
+  </data>
+  <data name="Discover Title" xml:space="preserve">
+    <value>Çocuğunuz İçin En İyisi</value>
+  </data>
+  <data name="Discover-1" xml:space="preserve">
+    <value>Her sabah ve akşam diş fırçalamayı rutin hale getirin</value>
+  </data>
+  <data name="Discover-2" xml:space="preserve">
+    <value>Çocuklarınıza diş fırçalama ve diş ipi kullanma konusunda örnek olun</value>
+  </data>
+  <data name="Discover-3" xml:space="preserve">
+    <value>Düzenli diş hekimi muayenelerini ihmal etmeyin</value>
+  </data>
+  <data name="Discover-4" xml:space="preserve">
+    <value>Şekerli içeceklerden mümkün olduğunca kaçının</value>
   </data>
   <data name="doktorumuz" xml:space="preserve">
     <value>Doktorumuz</value>
@@ -162,6 +192,9 @@
   <data name="Form Treatment" xml:space="preserve">
     <value>Tedavi Yönteminizi Seçin</value>
   </data>
+  <data name="Galeri" xml:space="preserve">
+    <value>Galeri</value>
+  </data>
   <data name="iletişim" xml:space="preserve">
     <value>İletişim</value>
   </data>
@@ -198,8 +231,14 @@
   <data name="News Box Title" xml:space="preserve">
     <value>Gelişmeler ve Güncellemeler</value>
   </data>
+  <data name="OurClinic" xml:space="preserve">
+    <value>Kliniğimizden</value>
+  </data>
   <data name="randevual" xml:space="preserve">
     <value>Randevu Al</value>
+  </data>
+  <data name="Read More" xml:space="preserve">
+    <value>Yazıyı Oku</value>
   </data>
   <data name="Supports Box Button" xml:space="preserve">
     <value>İletişime Geç</value>
@@ -215,5 +254,8 @@
   </data>
   <data name="We Are Ready" xml:space="preserve">
     <value>Vereceğiniz Bilgiler İçin Size Yardımcı Olmaya Hazırız</value>
+  </data>
+  <data name="Working Hours" xml:space="preserve">
+    <value>Çalışma Saatleri: Pzt - Cm,</value>
   </data>
 </root>

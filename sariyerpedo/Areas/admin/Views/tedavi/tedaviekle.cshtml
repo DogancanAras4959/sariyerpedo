@@ -1,7 +1,7 @@
 ﻿@model sariyerpedo.BUSSINES.DTOS.TreatmentData.TreatmentDto
 
 @{
-    ViewData["Title"] = "kullanicikayit";
+    ViewData["Title"] = "Tedavi Ekle";
     Layout = "~/Areas/admin/Views/_Shared/_Layout.cshtml";
 }
 
@@ -26,9 +26,16 @@
             float: left;
             margin-right: 0.5rem;
         }
+
+    body {
+        margin: 0;
+        background-color: #f1f5f7;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
 </style>
 
-<div class="col-xl-8">
+<div class="col-xl-12">
     <div class="card">
         <div class="card-body">
             <form method="post" action="/admin/tedavi/tedaviolustur" enctype="multipart/form-data" novalidate="" class="needs-validation">
@@ -87,7 +94,7 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="validationCustom02" class="form-label">İçerik Dili</label>
-                            <select asp-for="languageId" asp-items="@ViewBag.Langs" class="form-control mb15">
+                            <select asp-for="LangId" asp-items="@ViewBag.Langs" class="form-control mb15">
                                 <option selected="selected" value="999">Dil seçiniz (Zorunlu)</option>
                             </select>
                         </div>

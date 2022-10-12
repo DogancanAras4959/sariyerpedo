@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sariyerpedo.DAL;
 
 namespace sariyerpedo.DAL.Migrations
 {
     [DbContext(typeof(sariyerpedodbcontext))]
-    partial class sariyerpedodbcontextModelSnapshot : ModelSnapshot
+    [Migration("20221011151412_v14")]
+    partial class v14
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -389,6 +391,9 @@ namespace sariyerpedo.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("LangId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TreatmentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedTime")

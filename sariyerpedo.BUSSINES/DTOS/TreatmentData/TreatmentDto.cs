@@ -15,8 +15,7 @@ namespace sariyerpedo.BUSSINES.DTOS.TreatmentData
         public string content { get; set; }
         public string metaTitle { get; set; }
         public string metaDescription { get; set; }
-        public string Video { get; set; }
-        public int languageId { get; set; }
+        public int LangId { get; set; }
         public int TreatmentId { get; set; }
 
         public LanguageDto language { get; set; }
